@@ -1,0 +1,224 @@
+Class,Mutant (or if RNAi - predicted gene),Description,Transgene Germline Desilencing,Potential Transgene Germline Desilencing [3],Transgene Somatic Silencing,Suppressor of Transgene Silencing in an eri-1 Background,Suppressor of Transgene Silencing in an eri-6/7 Background,Suppressor of Transgene Silencing in an rrf-3 Background,Suppressor of Transgene Silencing in a tam-1 (cc567) Background,"Enhanced RNAi phenotype (G - germline, S - somatic)","Enhanced Nuclear RNAi pneotype (G - germline, S - somatic)","RDE phenotype (G - germline, S - somatic)",Method,Reference
+RNAi Factors,,,,,,,,,,,,,,
+,mut-16,-, + (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd, + (mutant [11]),nd,-,nd, + G (coinjection [1]),"RNAi, mutant","1, 11"
+,dcr-1,DICER RNase III, + (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,+ (RNAi [10],-,nd, + G (coinjection [1]),RNAi,1
+,rde-4,dsRNA binding protein, - (RNAi Ex [1]),N/A, - (ne299 [3])/+ (RNAi (93%) [12?]),"+ (RNAi scm, sur-5 [1])",nd,-,nd,-,nd," + G (coinjection [1]), S (double RNAi [3]) (ne299 [12])","mutant, RNAi","1,3, 12"
+,drh-1,DEAD/DEAH box helicase, + (RNAi Ex [1]),N/A, - (RNAi [3]),"+ (RNAi scm, sur-5 [1])", + (RNAi partial [3]),nd,nd,-,nd, + G (coinjection [1]),"mutant, RNAi","1,3"
+,gfl-1,chromatin associated protein," - (RNAi Ex [1, 10])",N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,-,nd," + G (coinjection [1, 10])",RNAi,"1, 10"
+,rde-1,Piwi and PAZ domain protein - AGO, - (ne219 Ex [12]),N/A, - (ne300 [3]),"+ (RNAi scm, sur-5 [1])",nd,nd,nd,-,nd," + G (coinjection [1], mutant [11], ne219 [12]), + S (ne219 [12])","mutant, RNAi","1,3, 11, 12"
+,rsd-2,required for siRNA spreading, - (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+,smg-2,NMD protein; RNAi persistence, - (RNAi Ex [1]),N/A,nd,+ (RNAi scm)/- (RNAi sur-5) [1],nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+,mut-7,3'-5' exonuclease domain," + (RNAi Ex [1], pk204 Ex In [12])",N/A,nd,"+ (RNAi scm, sur-5 [1])",nd, + (mutant [11]),nd,-,nd," + G (coinjection [1], pk204 [12])/partial S (pk204 [12])","RNAi, mutant","1, 11, 12"
+,zfp-1,chromatin associated protein," - (Ex [1, 10])",N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd, + (RNAi [10]),-,nd," + G (coinjection [1, 10])",RNAi,"1, 10"
+,nrde-2,nuclear RNAi factor,nd,N/A,- (gg91 sur-5 [2]),+ (gg91 sur-5 [2]),nd,nd,nd,-,-,nd,"mutant, RNAi",2
+,nrde-3,nuclear RNAi factor,nd,N/A," + (partial - tm1116 [3, 5]), - (gg66 sur-5 [2])",+ (gg66 sur-5 [2]), + (tm1116 [3]),nd,nd,-,-, + (slight in an eri background [2]),mutant,"2,3,5"
+,ergo-1,26G siRNA AGO,nd,N/A," + (tm1860, RNAi 98% [3])",nd,nd,nd,nd," + S (tm1860, mg394 [3])",nd,-,mutant,3
+,wago-1,AGO,nd,N/A, - (ok1074 [3]),nd, - (ok1074 [3]),nd,nd,-,nd,-,mutant,3
+,glp-1,required for germline formation (phenotype - no germline),nd,N/A,nd,nd, - (RNAi [3]),nd,nd,-,nd,-,RNAi,3
+,csr-1,anti-silencing AGO,nd,N/A, + (RNAi 91% [3]),nd,nd,nd,nd,-,nd, + S (Claycomb et al. 2009 [3]),RNAi,3
+,prg-1,piRNA AGO,nd,N/A, + (tm872 [3]),nd, - (tm872 [3]),nd,nd,-,nd,-,"mutant, RNAi",3
+,eri-6,helicase,nd,N/A," + (RNAi 93%, mg411 [3, 5])",nd,N/A,nd,nd," + S (mg411 [3], mg379 [5])",nd,-,"mutant, RNAi","3, 5"
+,eri-7,helicase,nd,N/A," + (RNAi 98%, mg411 [3])",nd,N/A,nd,nd, + S (mg369 [3]),nd,-,"mutant, RNAi",3
+,drh-3,,nd,N/A, + (RNAi 58% [3]),nd,nd,nd,nd,-,nd, + S (Duhaine et al. 2006 [3]),RNAi,3
+,rde-12,,nd,N/A, + (RNAi 89% [3]),nd,nd,nd,nd,-,nd, + S G (double RNAi [3]),RNAi,3
+,rrf-3,RdRP,nd,N/A," + (pk2042, pk1426 [11])",nd,nd,N/A,nd," + S G (pk2042, pk1426 [11])",nd,-,"mutant, RNAi",11
+,rde-4,,nd,N/A,nd,nd,nd,nd,-,-,nd, + S G (mutant [11]),mutant,11
+,mut-2,,nd,nd,nd,nd,nd,nd,nd,nd,nd, + S G (r459 [12]),mutant,12
+,rde-2,,+ (ne221),N/A,nd,nd,nd,nd,-,-,nd, + G partial S (ne221 [12]),mutant,12
+,rde-3,,nd,N/A,nd,nd,nd,nd,-,-,nd, + S G (r459 [12]),mutant,12
+Chromatin Factors,,,,,,,,,,,,,,
+,pqn-28,SIN3 component, - (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,nd,nd,-,RNAi,"1, 10"
+,hda-3,Histone deacetylase, + (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+,M03C11.3,chromatin associated protein," + (RNAi Ex [1, 10])",N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,nd,nd,-,RNAi,"1, 10"
+,mes-4,"SET domain nuclear protein, H3K36 methyltransferase, COMPASS complex"," + (RNAi Ex [1, 10], bn67 [13], RNAi Is [4])",N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd, + (RNAi [10]),nd,nd," + G (coinjection [9, 10])",RNAi,"1, 4, 9, 10, 13"
+,set-25,H3K9 methyltransferase, + (RNAi Is [4]), + (RNAi Is [3]), - (n5021 [3]),nd, + (n5021 partial [3]),nd,nd,-,nd,-,"mutant, RNAi","3, 4"
+,lin-61,Binds to H3K9me2/3, + (RNAi Is [4]), + (RNAi Is [3]), - (RNAi [3]), + (RNAi [7]), + (RNAi [3]),nd,nd,-,nd,-,"mutant, RNAi","3, 4, 7"
+,dpy-30,"Set1/MLL Complex, COMPASS complex",-,N/A, + (RNAi 48% [3]),nd, - (RNAi [3]),nd,-,-,nd,-,RNAi,"3, 10"
+,set-2,"H3K4 methyltransferase, Set1",nd,N/A, + (RNAi partial [3]),nd, - (RNAi [3]),nd,nd,-,nd,-,RNAi,3
+,lin-35,Rb - synMuvB gene group - DRM Complex,nd,N/A," + (RNAi 65% [3, 7, 8, 9])",nd,nd,nd,nd," + S G (n745 [3, 7, 9, 10], n2239 [8])",nd,-,"mutant, RNAi","3, 7, 8, 9, 10"
+,nurf-1,methylated histone and metal ion binding activity,nd,N/A, + (RNAi 36% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,isw-1,"synMuvB suppressor gene, localizes to nuclear chromatin",-,N/A, + (RNAi 88% [3]),nd,nd,nd, + (RNAi [10]),-,nd, - S G (double RNAi [3])/+ G (coinjection [10]),RNAi,"3, 10"
+,mes-3,PRC2 complex," + (RNAi Is [4], bn21ts Ex [13])",N/A, + (RNAi 41% [3]),nd,nd,nd,nd, + S (double RNAi [3]),nd,-,RNAi,"3, 4, 13"
+,cpar-1,,nd,N/A,nd (but 43%? [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,lin-54,"synMuv B gene, DRM Complex",nd,N/A," + (RNAi 93% [3, 7])",nd,nd,nd,nd," + S (Wang et al. 2005 [3], n2331 [7])",nd,-,RNAi,"3, 7"
+,mes-2,PRC2 complex, + (bn11 Ex [13]), + (RNAi Is [3]), + (RNAi 62% [3]),nd,nd,nd,nd,-,nd,-,RNAi,"3, 13"
+,htz-1,,nd, + (RNAi Is [3]), + (RNAi 85% [3]),nd,nd,nd,nd,-,nd, + S G (double RNAi [3]),RNAi,3
+,lin-9,"synMuv B gene, DRM Complex",nd,N/A," + (RNAi 93% [3, 7, 9])",nd,nd,nd,nd," + S (Wang et al. 2005 [3], n112 [7, 9, 10])",nd,-,"mutant, RNAi","3, 7, 9, 10"
+,sams-3/4,methyl donator, + (RNAi Is [4]), + (RNAi Is [3]), + (RNAi 60% [3]),nd,nd,nd, + (RNAi [10]),-,nd, + G (coinjection [10]),RNAi,"3, 4, 10"
+,mes-6,PRC2 complex," + (RNAi Is [4], Ex bn66 [13])",N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,"4, 13"
+,mrg-1,MRG15 homolouge," + (RNAi Is [4], Ex [10])",N/A,nd,nd,nd,nd, + (RNAi [10]),nd,nd,-,RNAi,"4, 10"
+,hpl-2,"HP1 homolog (chromodomain), synMuvB Heterochromatin Group", + (RNAi Is [4]),N/A,-, + (RNAi [7]),nd,nd,nd," + S (ok917, tm1489 [7, 8])",nd,nd,"mutant, RNAi","4, 7, 8"
+,ZK1127.3,NuA4 Complex, + (RNAi Ex [1] Is [4])/- (RNAi Ex [10]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,-,nd,nd,-,RNAi,"1, 4, 10"
+,his-34,Histone H4, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,spr-5,H3K4 demethylase, + (mutant Is [6])/- (mutant Ex [6]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,mutant,6
+,lin-52,"synMuv B gene, DRM Complex",nd,N/A, + (RNAi [7]),nd,nd,nd,nd,nd,nd,nd,mutant,7
+,dpl-1,"synMuv B gene, DRM Complex",nd,N/A,nd,nd,nd,nd,nd," + S (n2994, n3643 [7, 9])",nd,-,mutant,"7, 9"
+,lin-37,"synMuv B gene, DRM Complex",nd,N/A, + (RNAi [7]),nd,nd,nd,nd," + S G (""lin-3"" n758, n833 [7, 8])",nd,-,mutant,"7, 8"
+,lin-53,"synMuv B gene DRM Complex, NuRD Complex",nd,N/A, + (RNAi [7]),nd,nd,nd,nd, + S (n833 [7]),nd,-,mutant,7
+,lin-13,synMuvB Heterochromatin Group,nd,N/A,-, + (RNAi [7]),nd,nd,nd, + (ok838 [7]),nd,-,"mutant, RNAi",7
+,met-2,"H3K9 methyltransferase, synMuvB Heterochromatin Group",nd,N/A,-, + (RNAi [7]),nd,nd,nd, -/+ (tm2682 [7]),nd,-,mutant,7
+,met-1,"synMuvB Heterochromatin Group, H3K36 methyltransferase",nd,N/A,nd,nd,nd,nd,nd,-,nd,nd,mutant,7
+,lin-15b,synMuvB gene,nd,N/A," + (RNAi [7, 9])",-,nd,nd,nd," + S (n744 [7, 8, 9, 10])",nd,-,mutant,"7, 8, 9, 10"
+,lin-36,synMuvB gene,nd,N/A,-,nd,nd,nd,nd,-,nd,nd,mutant,"7, 9, 10"
+,tam-1,synMuvB gene,nd,N/A," + (cc567 [7, 10])/ - (RNAi [7])/ + (RNAi [9])",nd,nd,nd,nd," + S (cc567 [7, 10])",nd,-,mutant,"7, 9, 10"
+,mep-1,"synMuvB gene, Mec Complex",nd,N/A, + (RNAi [7]),nd,nd,nd,nd,nd,nd,nd,mutant,7
+,let-418,"synMuvB gene, Mec Complex",nd,N/A,-,-,nd,nd,nd,nd,nd,nd,"mutant, RNAi",7
+,smo-1,"synMuvB gene, Mec Complex",nd,N/A,-, + (RNAi - partial [7]),nd,nd,nd,nd,nd,nd,"mutant, RNAi",7
+,uba-2,"synMuvB gene, Mec Complex",nd,N/A,-, + (RNAi - partial [7]),nd,nd,nd,nd,nd,nd,"mutant, RNAi",7
+,ubc-9,"synMuvB gene, Mec Complex",nd,N/A,-, + (RNAi - partial [7]),nd,nd,nd,nd,nd,nd,"mutant, RNAi",7
+,lin-65,synMuvB Heterochromatin Group,nd,N/A,-, + (RNAi [7]),nd,nd,nd, + S (n3441 [7]),nd,-,"mutant, RNAi",7
+,C34B7.4,NuA4 Complex, - (RNAi Ex [1]),N/A,-,nd,nd,nd,-,nd,nd,-,RNAi,10
+,Y105E8A.17,NuA4 Complex," - (RNAi Ex [1, 10])",N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+,C08B11.6,SWR1 Complex, + (Ex 5%[10]),N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+,C17E4.6,SWR1 Complex,-,N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+,CD4.7,SWR1 Complex,-,N/A,nd,nd,nd,nd,-,nd,nd, + G (coinjection [10]),RNAi,10
+,C14B1.4,COMPASS Complex,-,N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+,hcf-1,COMPASS Complex,-,N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+miRNA Factors,,,,,,,,,,,,,,
+,lin-4,microRNA targeting lin-14,nd,N/A, - (ma161 [3]),nd, - (ma161 [3]),nd,nd,-,nd,-,mutant,3
+,alg-1,AGO,nd,N/A, + (gk214 [3]),nd, - (gk214 [3]),nd,nd,-,nd,-,mutant,3
+Nuclear Import/Export,,,,,,,,,,,,,,
+,npp-16,Nuclear pore complex component, - (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,nd,nd,-,RNAi,1
+,ntl-9,hemidesmosome assembly (?),nd, + (RNAi Is [3]), + (RNAi 76% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,npp-12,,nd,N/A, + (RNAi 43% [3]),nd,nd,nd,nd," + S (ok2424, tm2320 [3])",nd,-,RNAi,3
+"Piwi/Paz, Tudor, or DEAD/DEAH helicase domains",,,,,,,,,,,,,,
+,C04F12.1 (vsra-1),Piwi domain protein, - (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+,K12B6.1,Piwi and PAZ domain protein, - (RNAi Ex [1]),N/A,nd,+ (RNAi scm)/- (RNAi sur-5) [1],nd,nd,nd,nd,nd,-,RNAi,1
+,F22D6.6,Tudor domain, + (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,nd,nd,-,RNAi,1
+,Y38A10A.6,DEAD/DEAH box helicase, - (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+RNA Binding and Processing,,,,,,,,,,,,,,
+,F43G9.5,pre-mRNA cleavage factor subunit, + (RNAi Ex [1]),N/A,nd,+ (RNAi scm)/- (RNAi sur-5) [1],nd,nd,nd,nd,nd,-,RNAi,1
+,ncl-1,B-box Zn-finger protein, - (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+,rnp-2,Sliceosome protein, + (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,nd,nd,-,RNAi,1
+,W05H7.4,Zn finger protein, - (RNAi Ex [1]),N/A,nd,+ (RNAi scm)/- (RNAi sur-5) [1],nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+,pqn-70,mRNP component, - (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,nd,nd,-,RNAi,1
+,Y71G10AL.1,S. c. H/ACA snoRNP homolog, - (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+,C12D8.1,KH domain protein, - (RNAi Ex [1]),N/A,nd,+ (RNAi scm)/- (RNAi sur-5) [1],nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+,puf-8,,nd,N/A, + (RNAi 38% [3]),nd,nd,nd,nd, + (ok302 [3]),nd,-,RNAi,3
+,ain-1,,nd,N/A, + (RNAi 43%),nd,nd,nd,nd,-,nd,-,RNAi,3
+,vig-1,,nd,N/A,nd (but 39%? [3]),nd,nd,nd,nd," + S (tm3383, ok2536 [3])",nd,-,RNAi,3
+,rnp-5,RNA binding,, + (RNAi Is [3]), + (RNAi 98% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,pnn-1,RNA binding,nd,N/A, + (RNAi 53% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,ell-1,translation elongation,nd,N/A, + (RNAi 85% [3]),nd,nd,nd,nd, + S (double RNAi [3]),nd,-,RNAi,3
+,exos-1,exonuclease,nd, + (RNAi Is [3]), + (RNAi 48% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,ccr-4,nuclear transcribed mRNA poly(A) tail shortening,nd, + (RNAi Is [3]), + (RNAi 36% [3]),nd,nd,nd,nd, + S (tm1312 [3]),nd,-,RNAi,3
+,tcer-1,transcription elongation regulator,nd, + (RNAi Is [3]), + RNAi (58% [3]),nd,nd,nd,nd, + S (double RNAi [3]),nd,-,RNAi,3
+,adr-1,adenosine deaminase acting on RNA,nd,N/A, + (RNAi 98% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,D2005.1,adenosine deaminase activity and binds to RNA,nd,N/A, + (RNAi 98% [3]),nd,nd,nd,nd, + S (ok2689 [3]),nd,-,RNAi,3
+,adr-2,adenosine deaminase acting on RNA,nd,N/A, + (RNAi 88% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,gut-2,snRNP protein, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,lsm-5,snRNP protein, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,lsm-6,snRNP protein, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,sap-1,splicosome associated protein, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,K04G7.11,SYF2 splicing factor, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+DNA Binding,,,,,,,,,,,,,,
+,dpy-20,DNA and metal ion binding,nd,N/A, + (RNAi 85% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,attf-3,,nd, + (RNAi [3]), + (RNAi 73% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+Signaling,,,,,,,,,,,,,,
+,mtk-1,MAPKKK, - (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+,ZC449.3,MAPKK, - (RNAi Ex [1]),N/A,nd,- (RNAi scm)/+(RNAi sur-5) [1],nd,nd,nd,nd,nd,-,RNAi,1
+Transcription,,,,,,,,,,,,,,
+,R03D7.4,RNA PolII elongation factor, + (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+,ZK1127.6.9,Transcription elongation factor CA150, + (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,nd,nd,-,RNAi,1
+,dpy-20,BED zinc finger DNA-binding protein, + (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,nd,nd,-,RNAi,1
+,Y65B4A.1,transcription elongation factor TAT-SF1, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+Protein Folding/Turnover ,,,,,,,,,,,,,,
+,adt-2,,nd,N/A, + (RNAi 89% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,ubc-20,,nd,N/A, + (RNAi 42% [3]),nd,nd,nd,nd, + S (double RNAi [3]),nd,-,RNAi,3
+,stc-1,,nd, + (RNAi Is [3]), + (RNAi 77% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,suro-1,,nd,N/A, + (RNAi 77% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,usp-5,,nd, + (RNAi Is [3]), + (RNAi 70% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,C34D4.14,Protein degradation, - (Ex [10]),N/A,nd,nd,nd,nd,-,-,nd, + G (coinjection [10]),RNAi,10
+,F30A10.10,Protein degradation, + (Ex [10]),N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+,rpn-10,Protein degradation, - (Ex [10]),N/A,nd,nd,nd,nd,-,-,nd, + G (coinjection [10]),RNAi,10
+,rpn-12,Protein degradation, - (Ex [10]),N/A,nd,nd,nd,nd,-,-,nd, + G (coinjection [10]),RNAi,10
+Metabolic Enzymes,,,,,,,,,,,,,,
+,mel-32,,nd,N/A, + (RNAi 49% [3]),nd,nd,nd,nd, + S (double RNAi [3]),nd,-,RNAi,3
+,pdi-1,,nd, + (RNAi Is [3]), + (RNAi 69% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,sdha-2,,nd,N/A, + (RNAi 62% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,F37A4.1,,nd,N/A, + (RNAi 39% [3]),nd,nd,nd,nd, + S (ttTi2621 [3]),nd,-,RNAi,3
+,hgo-1,,nd, + (RNAi Is [3]), + (RNAi 38% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,Y48A6B.7,,nd,N/A, + (RNAi 43% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+Vesicular Transport,,,,,,,,,,,,,,
+,cogc-5,,nd,N/A, + (RNAi 43% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,aps-2,,nd, + (RNAi Is [3]), + (RNAi 48% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,dpy-23,,nd,N/A, + (RNAi 98% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,apa-2,,nd,N/A, + (RNAi 36% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,arl-8,,nd,N/A, + (RNAi 54% [3]),nd,nd,nd,nd, + S (tm2472 [3]),nd, - S (tm2472 [3]),RNAi,3
+Other,,,,,,,,,,,,,,
+,F37B12.4,Ubiquitin carboxyl-termlinal hydrolase , - (RNAi Ex [1]),N/A,nd,+ (RNAi scm)/- (RNAi sur-5) [1],nd,nd,nd,nd,nd,-,RNAi,1
+,rde-5,new rde gene, + (RNAi Ex [1]),N/A,nd,+ (RNAi scm)/- (RNAi sur-5) [1],nd,nd,nd,nd,nd,-,RNAi,1
+,T19B4.5,, - (RNAi Ex [1]),N/A,nd,"+ (RNAi scm, sur-5 [1])",nd,nd,nd,-,nd, + G (coinjection [1]),RNAi,1
+,F29A7.6,,nd, - (RNAi Is [3]) , + (RNAi 66% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,T26A8.4,metal ion binding activity,nd,N/A, + (RNAi 79% [3]),nd,nd,nd,nd, + S (double RNAi [3]),nd,-,RNAi,3
+,prmt-1,protein arginine methyltransferase,nd,N/A, + (RNAi 68% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,flna-1,,nd,N/A, + (RNAi 64% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,col-90,,nd, + (RNAi Is [3]), + (RNAi 56% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,cutl-20,,nd,N/A, + (RNAi 39% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,F35E8.4,,nd,N/A, + (RNAi 44% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,T11F9.7,,nd,N/A, + (RNAi 49% [3]),nd,nd,nd,nd, + S (double RNAi [3]),nd,-,RNAi,3
+,ekl-1,,nd,N/A, + (RNAi 70% [3]),nd,nd,nd,nd,-,nd, + S G (Rocheleau et al. 2008 [3]),RNAi,3
+,ent-1,,nd,N/A, + (RNAi 54% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,B0001.6,,nd,N/A, + (RNAi 89% [3]),nd,nd,nd,nd, + S (cxTi7130 [3]),nd,-,RNAi,3
+,C25F9.11,,nd,N/A, + (RNAi 36% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,C41D11.4,,nd,N/A, + (RNAi 38% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,C43H6.4,,nd,N/A, + (RNAi 45% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,F57C9.7,,nd,N/A, + (RNAi 48% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,T03F6.4,,nd,N/A, + (RNAi 43% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,T24C4.2,,nd,N/A, + (RNAi 45% [3]),nd,nd,nd,nd, + S (double RNAi [3]),nd,-,RNAi,3
+,Y39G10AR.7,,nd,N/A, + (RNAi 66% [3]),nd,nd,nd,nd,-,nd,-,RNAi,3
+,emb-4,helicase domain protein, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,mel-46,DEAD-like helicase, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,ubl-5,ubiquitin-like family, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,F52C6.12,"ubiquitin-conjugating enzyme, E2", + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,F25H5.5,claspin homolog, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,Y57A10A.31,"zinc-finger, RING type", + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,mrp-5,multi-drug resistance protein, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,spe-15,special myosin, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,gsp-3,serine/threonine specific protein phosphatase, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,C35D10.7,unknown function, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,F33H1.3,unknown function, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,F54D10.5,unknown function, + (RNAi Is [4]),N/A,nd,nd,nd,nd,nd,nd,nd,nd,RNAi,4
+,F52B11.1,, + (Ex [10]),N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+,R08C7.3,,-,N/A,nd,nd,nd,nd,-,-,nd, + G (coinjection [10]),RNAi,10
+,T02C12.3,,-,N/A,nd,nd,nd,nd,-,-,nd, + G (coinjection [10]),RNAi,10
+,ZK846.9,,-,N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+,Y53G8AR.2,,-,N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+,B0035.4,,-,N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+,C06E7.1,,-,N/A,nd,nd,nd,nd, + (RNAi [10]),-,nd, + G (coinjection [10]),RNAi,10
+,C34E10.8,,-,N/A,nd,nd,nd,nd,-,-,nd, + G (coinjection [10]),RNAi,10
+,F54D11.2,, + (Ex [10]),N/A,nd,nd,nd,nd,-,-,nd, + G (coinjection [10]),RNAi,10
+,K08F4.2,, + (Ex [10]),N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+,T07E3.3,,-,N/A,nd,nd,nd,nd,-,nd,nd,-,RNAi,10
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+1,"Kim, J. K., Gabel, H. W., Kamath, R. S., Tewari, M., Pasquinelli, A., Rual, J.-F., et al. (2005). Functional genomic analysis of RNA interference in C. elegans. Science, 308(5725), 1164–1167. http://doi.org/10.1126/science.1109267",,,,,,,,,,,,,
+,- RNAi screen; also Ex transgene desilencing in germline (PD7271); note I think somatic transgene silencing (scm::gfp and sur-5::gfp transgenes) refers to desilencing in an eri background,,,,,,,,,,,,,
+2,"Zhuang, J. J., Banse, S. A., & Hunter, C. P. (2013). The nuclear argonaute NRDE-3 contributes to transitive RNAi in Caenorhabditis elegans. Genetics, 194(1), 117–131. http://doi.org/10.1534/genetics.113.149765",,,,,,,,,,,,,
+,- nrde's in repetitive transgene silencing,,,,,,,,,,,,,
+3,"Fischer, S. E. J., Pan, Q., Breen, P. C., Qi, Y., Shi, Z., Zhang, C., & Ruvkun, G. (2013). Multiple small RNA pathways regulate the silencing of repeated and foreign genes in C. elegans. Genes & Development, 27(24), 2678–2695. http://doi.org/10.1101/gad.233254.113",,,,,,,,,,,,,
+,- RNAi screen for transgene silencing,,,,,,,,,,,,,
+4,"Towbin, B. D., González-Aguilera, C., Sack, R., Gaidatzis, D., Kalck, V., Meister, P., et al. (2012). Step-wise methylation of histone H3K9 positions heterochromatin at the nuclear periphery. Cell, 150(5), 934–947. http://doi.org/10.1016/j.cell.2012.06.051",,,,,,,,,,,,,
+,- did screen for desilencing of pkIs1582 in embryos in utero ?? check details,,,,,,,,,,,,,
+,"- “… 29 RNAi clones that reproducibly caused array derepression in at least two out of three replicates without inducing embryonic death (Table S1; Figure 1C). …..  two histone methyl transferases (mes-4 and set-25), three histone binding proteins (mrg-1, lin-61, hpl-2), and the Polycomb repressor complex 2 (PRC2) components mes-3 and mes-6.” ",,,,,,,,,,,,,
+5,"Fischer, S. E. J., Montgomery, T. A., Zhang, C., Fahlgren, N., Breen, P. C., Hwang, A., et al. (2011). The ERI-6/7 helicase acts at the first stage of an siRNA amplification pathway that targets recent gene duplications. PLoS Genetics, 7(11),  e1002369. http://doi.org/10.1371/journal.pgen.1002369",,,,,,,,,,,,,
+,"- transgene silencing - see table S8 - eri-6, 100% rol; nrde-3, 50% rol",,,,,,,,,,,,,
+6,"Katz, D. J., Edwards, T. M., Reinke, V., & Kelly, W. G. (2009). A C. elegans LSD1 demethylase contributes to germline immortality by reprogramming epigenetic memory. Cell, 137(2), 308–320. http://doi.org/10.1016/j.cell.2009.02.015",,,,,,,,,,,,,
+,- desilencing of integrated but not Ex GFP transgene in spr-5 mutants,,,,,,,,,,,,,
+7,"Wu, X., Shi, Z., Cui, M., Han, M., & Ruvkun, G. (2012). Repression of Germline RNAi Pathways in Somatic Cells by Retinoblastoma Pathway Chromatin Complexes. PLoS Genetics, 8(3), e1002542. http://doi.org/10.1371/journal.pgen.1002542",,,,,,,,,,,,,
+,"- lin-15b, mep-1, let-418, tam-1 RNAi - transgene ‘silencing’; lin-65 - transgene ‘de-silencing’- in this case de-silencing I think means reverse silencing in eri-1 background; see also Fig S1, S2, S6",,,,,,,,,,,,,
+8,"Cerón, J., Rual, J.-F., Chandra, A., Dupuy, D., Vidal, M., & van den Heuvel, S. (2007). Large-scale RNAi screens identify novel genes that interact with the C. elegans retinoblastoma pathway as well as splicing-related components with synMuv B activity. BMC Developmental Biology, 7, 30. http://doi.org/10.1186/1471-213X-7-30",,,,,,,,,,,,,
+,- lin-35 RNAi - transgene silencing (scm::gfp),,,,,,,,,,,,,
+9,"Lehner, B., Calixto, A., Crombie, C., Tischler, J., Fortunato, A., Chalfie, M., & Fraser, A. G. (2006). Loss of LIN-35, the Caenorhabditis elegans ortholog of the tumor suppressor p105Rb, results in enhanced RNA interference. Genome Biology, 7(1), R4. http://doi.org/10.1186/gb-2006-7-1-r4",,,,,,,,,,,,,
+,"- as above lin-35, lin-15B, lin-9, tam-1; details unclear; not sure if sub-reference in table is correct?",,,,,,,,,,,,,
+10,"Cui, M., Kim, E. B., & Han, M. (2006). Diverse chromatin remodeling genes antagonize the Rb-involved SynMuv pathways in C. elegans. PLoS Genetics, 2(5), e74. http://doi.org/10.1371/journal.pgen.0020074",,,,,,,,,,,,,
+,- germline Ex transgene desilencing (PD7271) - several RNAi’s; ,,,,,,,,,,,,,
+11,"Simmer, F., Tijsterman, M., Parrish, S., Koushika, S. P., Nonet, M. L., Fire, A., et al. (2002). Loss of the Putative RNA-Directed RNA Polymerase RRF-3 Makes C. elegans Hypersensitive to RNAi. Current Biology, 12(15), 1317–1319. http://doi.org/10.1016/S0960-9822(02)01041-2",,,,,,,,,,,,,
+,- pkIs1582 rolling is silenced in rrf-3 mutant; this is suppressed by mut-7 or mut-16 RNAi but not by rde-4 RNAi,,,,,,,,,,,,,
+12,"Tabara, H., Sarkissian, M., Kelly, W. G., Fleenor, J., Grishok, A., Timmons, L., et al. (1999). The rde-1 gene, RNA interference, and transposon silencing in C. elegans. Cell, 99(2), 123–132. http://doi.org/10.1016/S0092-8674(00)81644-X",,,,,,,,,,,,,
+,"(also referred to by this mut-7 paper: Ketting, R. F., Haverkamp, T. H., van Luenen, H. G., & Plasterk, R. H. (1999). Mut-7 of C. elegans, required for transposon silencing and RNA interference, is a homolog of Werner syndrome helicase and RNaseD. Cell, 99(2), 133–141. http://doi.org/10.1016/S0092-8674(00)81645-1)",,,,,,,,,,,,,
+13,"Kelly, W. G. & Fire, A. Chromatin silencing and the maintenance of a functional germline in Caenorhabditis elegans. Dev. Camb. Engl. 125, 2451–2456 (1998).",,,,,,,,,,,,,
