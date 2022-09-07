@@ -1,0 +1,316 @@
+---
+title: "Visual Reimagining of Thesis Phenotypic Screens Literature Review Chart"
+author: "Victor Lao"
+output: 
+  html_document:
+    theme: paper
+    toc: true
+---
+
+## Introduction
+
+During my thesis I found that *cec-3* and *cec-6* mutants display a somatic and germline transgene silencing phenotype. To investigate potential pathways that *cec-3* and *cec-6* may participate in, I reviewed the literature for other mutants with a somatic and germline transgene silencing phenotype. This was transcribed onto a table in order to compare mutants positive and/or negative for somatic and germline transgene silencing phenotypes.
+
+Looking back, a chart may not have been the best way to visualize the literature review. It is difficult to scan a table by eye to spot wider trends or zero in on individual potential genes of interest. I believe an interactive heat map may have been a more concise and accessible way to showcase the data. In this report I will outline how I used heatmaply to reimagine my thesis figure as well as provide analysis of the visualization method and data.
+
+## Methodology
+
+The literature review table was originally produced in excel using characters "+" and "-" to denote the presence or absence, respectively, of a phenotype of interest in each mutant recorded. Unfortunately, the format used was inconsistent due to my attempt to include additional information.  
+```{r include=FALSE}
+library(tidyverse)
+library(zoo)
+library(heatmaply)
+library(plotly)
+library(htmlwidgets)
+
+raw_data <- read.csv("Transgene_Silencing_Suppressor_Chart.csv") %>%
+  as_tibble()
+```
+```{r echo=FALSE}
+raw_data
+```
+
+To parse the character strings into usable values for visualization, I relied on the presence or absence of "+" and "-" in each cell and wrote a function to convert them into numeric values. Cells without either were converted to NA (as the experiments were not done in those mutants).
+```{r message=FALSE, warning=FALSE}
+## create function to parse strings into usable values
+revalue <- function(string) {
+  ifelse(str_detect(string, "\\+"), 1,
+          ifelse(str_detect(string, "-"), 0, NA))
+}
+```
+
+Several transformations were performed on the data in order to ready it for heatmaply. Aesthetic formatting for table display was removed along with the reference list at the bottom. Several columns recorded a combination of two phenotypes. These strings were manually decoded to split phenotypes into individual columns. Columns were then rearranged before re-coding strings into numerical values using the function described above.
+```{r message=FALSE, warning=FALSE}
+## clean data
+data <- raw_data %>%
+  ## remove empty rows and populate Class column
+  mutate(Class = ifelse(Class == "", NA, Class)) %>%
+  filter(row_number() <= 191) %>%
+  na.locf() %>%
+  filter(Reference != "") %>%
+  ## split columns with two values
+  mutate("Exogenous Germline Transgene Silencing" = 
+           ifelse(
+             str_detect(Transgene.Germline.Desilencing, "Ex"),
+             Transgene.Germline.Desilencing,
+             NA),
+         "Endogenous Germline Transgene Silencing" =
+           ifelse(
+             str_detect(Transgene.Germline.Desilencing, "Is"),
+             Transgene.Germline.Desilencing,
+             NA),
+         "Enhanced Germline RNAi" =
+           ifelse(
+             str_detect(Enhanced.RNAi.phenotype..G...germline..S...somatic., "G"),
+             Enhanced.RNAi.phenotype..G...germline..S...somatic.,
+             NA),
+         "Enhanced Somatic RNAi" =
+           ifelse(
+             str_detect(Enhanced.RNAi.phenotype..G...germline..S...somatic., "S"),
+             Enhanced.RNAi.phenotype..G...germline..S...somatic.,
+             NA),
+         "Germline RNAi Defective" =
+           ifelse(
+             str_detect(RDE.phenotype..G...germline..S...somatic., "S"),
+             RDE.phenotype..G...germline..S...somatic.,
+             NA),
+         "Somatic RNAi Defective" =
+           ifelse(
+             str_detect(RDE.phenotype..G...germline..S...somatic., "S"),
+             RDE.phenotype..G...germline..S...somatic.,
+             NA)) %>%
+  ## remove unwanted rows and reorder chart
+  select(Mutant..or.if.RNAi...predicted.gene.,
+         Transgene.Somatic.Silencing,
+         "Exogenous Germline Transgene Silencing",
+         "Endogenous Germline Transgene Silencing",
+         Suppressor.of.Transgene.Silencing.in.an.eri.1.Background,
+         Suppressor.of.Transgene.Silencing.in.an.eri.6.7.Background,
+         Suppressor.of.Transgene.Silencing.in.an.rrf.3.Background,
+         Suppressor.of.Transgene.Silencing.in.a.tam.1..cc567..Background,
+         "Enhanced Somatic RNAi",
+         "Enhanced Germline RNAi",
+         "Somatic RNAi Defective",
+         "Germline RNAi Defective",
+         Class,
+         Description,
+         Reference) %>%
+  rename(Gene = Mutant..or.if.RNAi...predicted.gene.,
+         "Somatic Transgene Silencing" = Transgene.Somatic.Silencing,
+         "Suppressor of Transgene Silencing (eri-1)" = Suppressor.of.Transgene.Silencing.in.an.eri.1.Background,
+         "Suppressor of Transgene Silencing (eri-6/7)" = Suppressor.of.Transgene.Silencing.in.an.eri.6.7.Background,
+         "Suppressor of Transgene Silencing (rrf-3)" = Suppressor.of.Transgene.Silencing.in.an.rrf.3.Background,
+         "Suppressor of Transgene Silencing (tam-1)" = Suppressor.of.Transgene.Silencing.in.a.tam.1..cc567..Background
+         ) %>%
+  mutate(across(
+    "Somatic Transgene Silencing":"Germline RNAi Defective",
+    revalue))
+```
+Duplicated data (*rde-4* and *dpy-20*) was combined.
+```{r echo=FALSE}
+fixed_data <- data[-c(23, 107),]
+fixed_data[111, 2] = 1
+fixed_data[111, 15] = "1, 3"
+```
+```{r echo=FALSE}
+fixed_data
+```
+Resulting data was graphed as a heat map using heatmaply.
+```{r message=FALSE, warning=FALSE}
+##plot data as a heatmap
+heatmap_data <- fixed_data %>%
+  select(-Class, -Description, -Reference) %>%
+  column_to_rownames("Gene") %>%
+  data.matrix()
+
+heatmaply(heatmap_data, 
+          Rowv = FALSE, 
+          Colv = FALSE,
+          showticklabels = c(TRUE, FALSE),
+          ylab = "Gene",
+          fontsize_col = 7)
+```
+
+Though graphically interesting, there were too many genes to reasonably display on the y-axis. Removal of the y-axis labels results in forcing the user to mouse over individual cells to identify the mutant of interest which, is more cumbersome than the initial table to use. To avoid this problem, I planned to create three separate class specific (RNAi factors, chromatin factors and RNA binding and processing factors) heat maps. A label matrix was created in order to provide mutant gene descriptions and references upon mouse-over.
+```{r message=FALSE, warning=FALSE}
+##create custom hovertext dataframe keeping Class column to sort
+label_data <- fixed_data %>%
+  mutate(across(2:12,
+                ~ paste("Results:", ifelse(.x == 1, "Positive",
+                                                 ifelse(.x == 0, "Negative", 
+                                                        "Experiment not done")),
+                        "\nDescription:", .data$Description,
+                        "\nReferences:", .data$Reference)))
+```
+Label data and heat map data were subset into separate tables before plotting in heatmaply. Heat maps were bound together for final visualization.
+```{r message=FALSE, warning=FALSE}
+##heatmap of RNAi factors
+rnaifactor_heatmap_data <- fixed_data %>%
+  filter(Class == "RNAi Factors") %>%
+  arrange(Gene) %>%
+  select(-Class, -Description, -Reference) %>%
+  column_to_rownames("Gene") %>%
+  data.matrix()
+
+rnaifactor_label_data <- label_data %>%
+  filter(Class == "RNAi Factors") %>%
+  arrange(Gene) %>%
+  select(-Class, -Description, -Reference) %>%
+  column_to_rownames("Gene")
+
+rnaifactor_heatmap <- heatmaply(rnaifactor_heatmap_data,
+          Rowv = FALSE,
+          Colv = FALSE,
+          hide_colorbar = TRUE,
+          margins = c(100,50,NA,0),
+          fontsize_row = 7,
+          fontsize_col = 7,
+          label_names = c("Gene", "Phenotype", "Coded Value"),
+          custom_hovertext = rnaifactor_label_data,
+          main = "RNAi Factors")
+
+rnaifactor_heatmap
+
+##heatmap of chromatin factors
+chromatinfactor_heatmap_data <- fixed_data %>%
+  filter(Class == "Chromatin Factors") %>%
+  arrange(Gene) %>%
+  select(-Class, -Description, -Reference) %>%
+  column_to_rownames("Gene") %>%
+  data.matrix()
+
+chromatinfactor_label_data <- label_data %>%
+  filter(Class == "Chromatin Factors") %>%
+  arrange(Gene) %>%
+  select(-Class, -Description, -Reference) %>%
+  column_to_rownames("Gene")
+
+chromatinfactor_heatmap <- heatmaply(chromatinfactor_heatmap_data,
+          Rowv = FALSE,
+          Colv = FALSE,
+          hide_colorbar = TRUE,
+          margins = c(100,50,NA,0),
+          fontsize_row = 7,
+          fontsize_col = 7,
+          label_names = c("Gene", "Phenotype", "Coded Value"),
+          custom_hovertext = chromatinfactor_label_data,
+          main = "Chromatin Factors")
+
+chromatinfactor_heatmap
+
+##heatmap of RNA binding factors
+rnabindingprocessing_heatmap_data <- fixed_data %>%
+  filter(Class == "RNA Binding and Processing") %>%
+  arrange(Gene) %>%
+  select(-Class, -Description, -Reference) %>%
+  column_to_rownames("Gene") %>%
+  data.matrix()
+
+rnabindingprocessing_label_data <- label_data %>%
+  filter(Class == "RNA Binding and Processing") %>%
+  arrange(Gene) %>%
+  select(-Class, -Description, -Reference) %>%
+  column_to_rownames("Gene")
+
+rnabindingprocessing_heatmap <- heatmaply(rnabindingprocessing_heatmap_data,
+          Rowv = FALSE,
+          Colv = FALSE,
+          hide_colorbar = TRUE,
+          margins = c(100,50,NA,0),
+          fontsize_row = 7,
+          fontsize_col = 7,
+          label_names = c("Gene", "Phenotype", "Coded Value"),
+          custom_hovertext = rnabindingprocessing_label_data,
+          main = "RNA Binding and Processing Factors")
+
+rnabindingprocessing_heatmap
+
+##bind relevent heatmaps together
+plots <- subplot(rnaifactor_heatmap, chromatinfactor_heatmap, rnabindingprocessing_heatmap,
+                 margin = 0.1,
+                 widths = c(0.29,0.4,0.29)) %>%
+  layout(title = NA,
+         annotations = list(
+           list(x = 0.10,  
+                y = 1.0,  
+                text = "RNAi Factors",  
+                xref = "paper",  
+                yref = "paper",   
+                xanchor = "center",  
+                yanchor = "bottom",  
+                showarrow = FALSE),  
+           list(x = 0.50,  
+                y = 1,  
+                text = "Chromatin Factors",  
+                xref = "paper",  
+                yref = "paper",  
+                xanchor = "center",  
+                yanchor = "bottom",  
+                showarrow = FALSE),  
+           list(x = 0.90,  
+                y = 1,  
+                text = "RNA Factors",  
+                xref = "paper",  
+                yref = "paper",  
+                xanchor = "center",  
+                yanchor = "bottom",  
+                showarrow = FALSE)))
+```
+```{r, echo=FALSE, out.height="150%", out.width="100%"}
+plots
+```
+
+## Analysis
+
+Visually the plot is much more appealing and informative than the original table.
+
+Unfortunately, it is immediately obvious that the dataset is very incomplete. There are many NA values as the many experiments needed to fill those values had not yet been performed. This makes it difficult to perform any quantitative analyses of mutant phenotypes across genes of interest.
+
+Qualitatively some tentative conclusions can be made. Somatic transgene silencing appears to be more generally associated with RNAi and Chromatin factors but not RNA binding and processing factors. Germline transgene silencing is more generally associated with RNAi and RNA binding and processing factors than chromatin factors. Again, as the data is so incomplete, it is hard to say if these observations will pan out against a more complete dataset. 
+
+This heat map analysis provides some potential leads for my thesis project. *cec-6* could be further analyzed as an RNAi factor as *cec-6* but not *cec-3* single mutants showed a germline transgene silencing phenotype. *cec-3* could be analyzed as a chromatin factor as both *cec-3* and *cec-6* showed a somatic transgene silencing phenotype. *cec-3* and *cec-6* acting in different pathways may explain the exacerbated phenotypes of *cec-3*; *cec-6* double mutants. Two mutations in separate pathways typically produce more exaggerated phenotypes compared to two mutations in the same pathway.
+
+## References
+
+### Heatmap References
+
+1. Kim, J. K., Gabel, H. W., Kamath, R. S., Tewari, M., Pasquinelli, A., Rual, J.-F., et al. (2005). Functional genomic analysis of RNA interference in C. elegans. Science, 308(5725), 1164–1167. http://doi.org/10.1126/science.1109267
+
+2. Zhuang, J. J., Banse, S. A., & Hunter, C. P. (2013). The nuclear argonaute NRDE-3 contributes to transitive RNAi in Caenorhabditis elegans. Genetics, 194(1), 117–131. http://doi.org/10.1534/genetics.113.149765
+
+3. Fischer, S. E. J., Pan, Q., Breen, P. C., Qi, Y., Shi, Z., Zhang, C., & Ruvkun, G. (2013). Multiple small RNA pathways regulate the silencing of repeated and foreign genes in C. elegans. Genes & Development, 27(24), 2678–2695. http://doi.org/10.1101/gad.233254.113
+
+4. Towbin, B. D., González-Aguilera, C., Sack, R., Gaidatzis, D., Kalck, V., Meister, P., et al. (2012). Step-wise methylation of histone H3K9 positions heterochromatin at the nuclear periphery. Cell, 150(5), 934–947. http://doi.org/10.1016/j.cell.2012.06.051
+
+5. Fischer, S. E. J., Montgomery, T. A., Zhang, C., Fahlgren, N., Breen, P. C., Hwang, A., et al. (2011). The ERI-6/7 helicase acts at the first stage of an siRNA amplification pathway that targets recent gene duplications. PLoS Genetics, 7(11),  e1002369. http://doi.org/10.1371/journal.pgen.1002369
+
+6. Katz, D. J., Edwards, T. M., Reinke, V., & Kelly, W. G. (2009). A C. elegans LSD1 demethylase contributes to germline immortality by reprogramming epigenetic memory. Cell, 137(2), 308–320. http://doi.org/10.1016/j.cell.2009.02.015
+
+7. Wu, X., Shi, Z., Cui, M., Han, M., & Ruvkun, G. (2012). Repression of Germline RNAi Pathways in Somatic Cells by Retinoblastoma Pathway Chromatin Complexes. PLoS Genetics, 8(3), e1002542. http://doi.org/10.1371/journal.pgen.1002542
+
+8. Cerón, J., Rual, J.-F., Chandra, A., Dupuy, D., Vidal, M., & van den Heuvel, S. (2007). Large-scale RNAi screens identify novel genes that interact with the C. elegans retinoblastoma pathway as well as splicing-related components with synMuv B activity. BMC Developmental Biology, 7, 30. http://doi.org/10.1186/1471-213X-7-30
+
+9. Lehner, B., Calixto, A., Crombie, C., Tischler, J., Fortunato, A., Chalfie, M., & Fraser, A. G. (2006). Loss of LIN-35, the Caenorhabditis elegans ortholog of the tumor suppressor p105Rb, results in enhanced RNA interference. Genome Biology, 7(1), R4. http://doi.org/10.1186/gb-2006-7-1-r4
+
+10. Cui, M., Kim, E. B., & Han, M. (2006). Diverse chromatin remodeling genes antagonize the Rb-involved SynMuv pathways in C. elegans. PLoS Genetics, 2(5), e74. http://doi.org/10.1371/journal.pgen.0020074
+
+11. Simmer, F., Tijsterman, M., Parrish, S., Koushika, S. P., Nonet, M. L., Fire, A., et al. (2002). Loss of the Putative RNA-Directed RNA Polymerase RRF-3 Makes C. elegans Hypersensitive to RNAi. Current Biology, 12(15), 1317–1319. http://doi.org/10.1016/S0960-9822(02)01041-2
+
+12. Tabara, H., Sarkissian, M., Kelly, W. G., Fleenor, J., Grishok, A., Timmons, L., et al. (1999). The rde-1 gene, RNA interference, and transposon silencing in C. elegans. Cell, 99(2), 123–132. http://doi.org/10.1016/S0092-8674(00)81644-X
+
+13. Kelly, W. G. & Fire, A. Chromatin silencing and the maintenance of a functional germline in Caenorhabditis elegans. Dev. Camb. Engl. 125, 2451–2456 (1998).
+
+### Article References
+
+Achim Zeileis and Gabor Grothendieck (2005). zoo: S3 Infrastructure for Regular and Irregular Time Series. Journal of Statistical Software, 14(6), 1-27. http://doi:10.18637/jss.v014.i06
+
+C. Sievert. Interactive Web-Based Data Visualization with R, plotly, and shiny. Chapman and Hall/CRC Florida, 2020.
+
+R Core Team (2021). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/
+
+R. Vaidyanathan, Y. Xie, J. Allaire, J. Cheng, C. Sievert, K. Russell (2021). htmlwidgets: HTML Widgets for R. R
+package version 1.5.4, https://CRAN.R-project.org/package=htmlwidgets
+
+Tal Galili, Alan O'Callaghan, Jonathan Sidi, Carson Sievert; heatmaply: an R package for creating interactive cluster heatmaps for online publishing, Bioinformatics, btx657, https://doi.org/10.1093/bioinformatics/btx657
+
+Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
