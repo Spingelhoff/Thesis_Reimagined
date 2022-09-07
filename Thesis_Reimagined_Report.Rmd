@@ -107,13 +107,10 @@ data <- raw_data %>%
     revalue))
 ```
 Duplicated data (*rde-4* and *dpy-20*) was combined.
-```{r echo=FALSE}
+```{r message=FALSE, warning=FALSE}
 fixed_data <- data[-c(23, 107),]
 fixed_data[111, 2] = 1
 fixed_data[111, 15] = "1, 3"
-```
-```{r echo=FALSE}
-fixed_data
 ```
 Resulting data was graphed as a heat map using heatmaply.
 ```{r message=FALSE, warning=FALSE}
@@ -265,9 +262,9 @@ plots
 
 Visually the plot is much more appealing and informative than the original table.
 
-Unfortunately, it is immediately obvious that the dataset is very incomplete. There are many NA values as the many experiments needed to fill those values had not yet been performed. This makes it difficult to perform any quantitative analyses of mutant phenotypes across genes of interest.
+Unfortunately, it is immediately obvious that the dataset is incomplete. There are many NA values as the experiments needed to fill those values had not yet been performed. This makes it difficult to do any quantitative analyses of mutant phenotypes across genes of interest.
 
-Qualitatively some tentative conclusions can be made. Somatic transgene silencing appears to be more generally associated with RNAi and Chromatin factors but not RNA binding and processing factors. Germline transgene silencing is more generally associated with RNAi and RNA binding and processing factors than chromatin factors. Again, as the data is so incomplete, it is hard to say if these observations will pan out against a more complete dataset. 
+Qualitatively some tentative conclusions can be made. Somatic transgene silencing appears to be more generally associated with RNAi and chromatin factors but not RNA binding and processing factors. Germline transgene silencing is more generally associated with RNAi and RNA binding and processing factors than chromatin factors. Again, as the data is so incomplete, it is hard to say if these observations will pan out against a more complete dataset. 
 
 This heat map analysis provides some potential leads for my thesis project. *cec-6* could be further analyzed as an RNAi factor as *cec-6* but not *cec-3* single mutants showed a germline transgene silencing phenotype. *cec-3* could be analyzed as a chromatin factor as both *cec-3* and *cec-6* showed a somatic transgene silencing phenotype. *cec-3* and *cec-6* acting in different pathways may explain the exacerbated phenotypes of *cec-3*; *cec-6* double mutants. Two mutations in separate pathways typically produce more exaggerated phenotypes compared to two mutations in the same pathway.
 
