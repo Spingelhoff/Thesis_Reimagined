@@ -1,8 +1,8 @@
 library(tidyverse)
-library(RColorBrewer)
 library(zoo)
 library(heatmaply)
 library(plotly)
+library(htmlwidgets)
 
 raw_data <- read.csv("Transgene_Silencing_Suppressor_Chart.csv") %>%
   as_tibble()
@@ -149,7 +149,8 @@ rnaifactor_heatmap <- heatmaply(rnaifactor_heatmap_data,
           fontsize_row = 7,
           fontsize_col = 7,
           label_names = c("Gene", "Phenotype", "Coded Value"),
-          custom_hovertext = rnaifactor_label_data)
+          custom_hovertext = rnaifactor_label_data,
+          main = "RNAi Factors")
 
 rnaifactor_heatmap
 
@@ -175,7 +176,8 @@ chromatinfactor_heatmap <- heatmaply(chromatinfactor_heatmap_data,
           fontsize_row = 7,
           fontsize_col = 7,
           label_names = c("Gene", "Phenotype", "Coded Value"),
-          custom_hovertext = chromatinfactor_label_data)
+          custom_hovertext = chromatinfactor_label_data,
+          main = "Chromatin Factors")
 
 chromatinfactor_heatmap
 
@@ -201,11 +203,43 @@ rnabindingprocessing_heatmap <- heatmaply(rnabindingprocessing_heatmap_data,
           fontsize_row = 7,
           fontsize_col = 7,
           label_names = c("Gene", "Phenotype", "Coded Value"),
-          custom_hovertext = rnaifactor_label_data)
+          custom_hovertext = rnabindingprocessing_label_data,
+          main = "RNA Binding and Processing Factors")
 
 rnabindingprocessing_heatmap
 
 ##bind relevent heatmaps together
 plots <- subplot(rnaifactor_heatmap, chromatinfactor_heatmap, rnabindingprocessing_heatmap,
                  margin = 0.1,
-                 widths = c(0.29,0.4,0.29))
+                 widths = c(0.29,0.4,0.29)) %>%
+  layout(title = NA,
+         annotations = list(
+           list(x = 0.10,  
+                y = 1.0,  
+                text = "RNAi Factors",  
+                xref = "paper",  
+                yref = "paper",   
+                xanchor = "center",  
+                yanchor = "bottom",  
+                showarrow = FALSE),  
+           list(x = 0.50,  
+                y = 1,  
+                text = "Chromatin Factors",  
+                xref = "paper",  
+                yref = "paper",  
+                xanchor = "center",  
+                yanchor = "bottom",  
+                showarrow = FALSE),  
+           list(x = 0.90,  
+                y = 1,  
+                text = "RNA Factors",  
+                xref = "paper",  
+                yref = "paper",  
+                xanchor = "center",  
+                yanchor = "bottom",  
+                showarrow = FALSE)))
+
+plots
+
+saveWidget(plots,
+           file = "Transgene_Suppressor_Chart_Widget.html")
