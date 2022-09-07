@@ -142,7 +142,7 @@ label_data <- fixed_data %>%
                         "\nDescription:", .data$Description,
                         "\nReferences:", .data$Reference)))
 ```
-Label data and heat map data were subset into separate tables before plotting in heatmaply. Heat maps were bound together for final visualization.
+Label data and heat map data were subset into separate tables before plotting in heatmaply.
 ```{r message=FALSE, warning=FALSE}
 ##heatmap of RNAi factors
 rnaifactor_heatmap_data <- fixed_data %>%
@@ -256,7 +256,8 @@ plots <- subplot(rnaifactor_heatmap, chromatinfactor_heatmap, rnabindingprocessi
                 yanchor = "bottom",  
                 showarrow = FALSE)))
 ```
-```{r, echo=FALSE, out.height="150%", out.width="100%"}
+Heat maps were bound together for final visualization.
+```{r, echo=FALSE, out.height="100%", out.width="100%"}
 plots
 ```
 
