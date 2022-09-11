@@ -304,6 +304,8 @@ Achim Zeileis and Gabor Grothendieck (2005). zoo: S3 Infrastructure for Regular 
 
 C. Sievert. Interactive Web-Based Data Visualization with R, plotly, and shiny. Chapman and Hall/CRC Florida, 2020.
 
+Victor Lao and Arneet Saltzman (2021). Investigation of Chromodomain Proteins, CEC-3 and CEC-6, in Maintenance of Germline Immortality. Tspace. URL https://hdl.handle.net/1807/106308
+
 R Core Team (2021). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/
 
 R. Vaidyanathan, Y. Xie, J. Allaire, J. Cheng, C. Sievert, K. Russell (2021). htmlwidgets: HTML Widgets for R. R
